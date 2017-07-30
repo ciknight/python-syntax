@@ -151,7 +151,7 @@ endif
 "
 
 syn keyword pythonStatement     break continue del
-syn keyword pythonStatement     exec return
+syn keyword pythonStatement     return
 syn keyword pythonStatement     pass raise
 syn keyword pythonStatement     global assert
 syn keyword pythonStatement     lambda
@@ -174,6 +174,7 @@ if s:Python2Syntax()
   if !s:Enabled("g:python_print_as_function")
     syn keyword pythonStatement  print
   endif
+  syn keyword pythonStatement     exec
   syn keyword pythonImport      as
   syn match   pythonFunction    "[a-zA-Z_][a-zA-Z0-9_]*" display contained
 else
@@ -503,6 +504,7 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonRepeat           Repeat
   HiLink pythonException        Exception
   HiLink pythonOperator         Operator
+  HiLink pythonSelf             Identifier
 
   HiLink pythonDecorator        Define
   HiLink pythonDottedName       Function
